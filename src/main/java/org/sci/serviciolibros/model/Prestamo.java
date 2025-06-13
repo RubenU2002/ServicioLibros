@@ -1,6 +1,7 @@
 package org.sci.serviciolibros.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDate;
 
 @Entity
@@ -20,6 +21,7 @@ public class Prestamo {
     private LocalDate fechaDevolucion;
 
     @OneToOne(mappedBy = "prestamo", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Multa multa;
 
     // Getters y setters
