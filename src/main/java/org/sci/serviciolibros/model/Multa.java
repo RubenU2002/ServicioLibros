@@ -1,6 +1,7 @@
 package org.sci.serviciolibros.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Multa {
@@ -12,6 +13,7 @@ public class Multa {
 
     @OneToOne
     @JoinColumn(name = "prestamo_id")
+    @JsonBackReference
     private Prestamo prestamo;
 
     // Getters y setters
