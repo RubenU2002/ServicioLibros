@@ -48,3 +48,14 @@ Al levantar la aplicación estarán disponibles:
    - Multas: `GET /api/reportes/multas`
 
 Los endpoints anteriores pueden probarse directamente desde la interfaz Swagger.
+
+## Docker
+
+Para construir y ejecutar la aplicación en un contenedor Docker:
+
+```bash
+docker build -t serviciolibros .
+docker run -p 8080:8080 serviciolibros
+```
+
+Al levantar el contenedor, la interfaz Swagger estará disponible en [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
