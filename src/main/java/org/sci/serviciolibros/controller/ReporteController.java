@@ -47,6 +47,15 @@ public class ReporteController {
 
     @GetMapping("/multas")
     public List<Multa> multas() {
-        return multaRepository.findAll();
+        List<Multa> multas = multaRepository.findAll();
+        // Almacenar solo el identificador del préstamo hace que la relación se
+        // pierda al leer desde archivo. Aquí se reconstruye para enviar al
+        // frontend la información completa.
+        multas.forEach(m -> {
+            if (m.getPrestamo() == null && m.getPrestamoId() != null) {
+                prestamoRepository.findById(m.getPrestamoId()).ifPresent(m::setPrestamo);
+            }
+        });
+        return multas;
     }
 }

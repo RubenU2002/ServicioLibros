@@ -7,6 +7,12 @@ public class Multa {
     private int diasRetraso;
     private double monto;
 
+    /**
+     * Identificador del préstamo asociado. Este valor se persiste en el
+     * archivo para poder reconstruir la relación cuando se leen las multas.
+     */
+    private Long prestamoId;
+
     @JsonBackReference
     private Prestamo prestamo;
 
@@ -17,6 +23,8 @@ public class Multa {
     public void setDiasRetraso(int diasRetraso) { this.diasRetraso = diasRetraso; }
     public double getMonto() { return monto; }
     public void setMonto(double monto) { this.monto = monto; }
+    public Long getPrestamoId() { return prestamoId; }
+    public void setPrestamoId(Long prestamoId) { this.prestamoId = prestamoId; }
     public Prestamo getPrestamo() { return prestamo; }
     public void setPrestamo(Prestamo prestamo) { this.prestamo = prestamo; }
 }
