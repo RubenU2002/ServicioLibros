@@ -1,26 +1,20 @@
 package org.sci.serviciolibros.model;
 
-import jakarta.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDate;
 
-@Entity
 public class Prestamo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
     private Usuario usuario;
 
-    @ManyToOne
     private Libro libro;
 
     private LocalDate fechaPrestamo;
     private LocalDate fechaEntrega;
     private LocalDate fechaDevolucion;
 
-    @OneToOne(mappedBy = "prestamo", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Multa multa;
 

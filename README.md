@@ -2,18 +2,18 @@
 
 Aplicación Spring Boot para gestionar préstamos de libros en una institución educativa. Permite registrar usuarios y libros, solicitar y devolver préstamos, calcular multas por retraso y consultar reportes.
 
+Las clases del modelo son simples POJOs que se almacenan en archivos JSON; no se utilizan anotaciones JPA.
+
 ## Configuración
 
-La aplicación utiliza una base de datos en memoria H2 y se configura automáticamente al iniciar. Para ejecutar el proyecto desde la línea de comandos:
+La aplicación persiste la información en archivos de texto dentro de la carpeta `data/`, por lo que no requiere una base de datos. Para ejecutar el proyecto desde la línea de comandos:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-Al levantar la aplicación estarán disponibles:
-
-- Consola H2: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
-- Documentación Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+Al levantar la aplicación estará disponible la documentación Swagger en:
+- [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## Ejemplo de uso con Swagger
 
