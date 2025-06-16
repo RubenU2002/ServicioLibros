@@ -73,6 +73,7 @@ public class PrestamoService {
             multa.setDiasRetraso((int) diasRetraso);
             double monto = multaStrategyFactory.getStrategy(prestamo.getUsuario().getRol()).calcularMulta((int) diasRetraso);
             multa.setMonto(monto);
+            multa.setPrestamoId(prestamo.getId());
             multa.setPrestamo(prestamo);
             multaRepository.save(multa);
             prestamo.setMulta(multa);
