@@ -1,5 +1,6 @@
 package org.sci.serviciolibros.controller;
 
+import org.sci.serviciolibros.dto.SolicitudPrestamoDTO;
 import org.sci.serviciolibros.model.Prestamo;
 import org.sci.serviciolibros.service.PrestamoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/prestamos")
@@ -21,10 +21,10 @@ public class PrestamoController {
     }
 
     @PostMapping("/solicitar")
-    public ResponseEntity<Prestamo> solicitarPrestamo(@RequestBody Map<String, String> body) {
-        Long usuarioId = Long.parseLong(body.get("usuarioId"));
-        Long libroId = Long.parseLong(body.get("libroId"));
-        LocalDate fechaEntrega = LocalDate.parse(body.get("fechaEntrega"));
+    public ResponseEntity<Prestamo> solicitarPrestamo(@RequestBody SolicitudPrestamoDTO solicitud) {
+        Long usuarioId = solicitud.getUsuarioId();
+        Long libroId = solicitud.getLibroId();
+        LocalDate fechaEntrega = LocalDate.parse(solicitud.getFechaEntrega());
         return ResponseEntity.ok(prestamoService.solicitarPrestamo(usuarioId, libroId, fechaEntrega));
     }
 
@@ -38,4 +38,3 @@ public class PrestamoController {
         return prestamoService.listarPrestamos();
     }
 }
-
