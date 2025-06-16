@@ -1,14 +1,9 @@
 package org.sci.serviciolibros.model;
 
-import jakarta.persistence.*;
 
-@Entity
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    @Enumerated(EnumType.STRING)
     private Rol rol;
 
     public enum Rol {
