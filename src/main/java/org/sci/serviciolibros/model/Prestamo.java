@@ -15,7 +15,6 @@ public class Prestamo {
     private LocalDate fechaEntrega;
     private LocalDate fechaDevolucion;
 
-    @JsonManagedReference
     private Multa multa;
 
     // Getters y setters

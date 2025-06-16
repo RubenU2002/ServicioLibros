@@ -13,7 +13,6 @@ public class Multa {
      */
     private Long prestamoId;
 
-    @JsonBackReference
     private Prestamo prestamo;
 
     // Getters y setters
